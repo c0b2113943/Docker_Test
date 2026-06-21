@@ -1,0 +1,27 @@
+services:
+  py3-light:
+    build:
+      context: ./py3
+      dockerfile: Dockerfile.light
+    image: pytorch-light:2026.04
+    container_name: pytorch-light
+    shm_size: "100gb"
+    restart: unless-stopped
+    working_dir: /workspace
+    command: >
+      jupyter-lab
+      --allow-root
+      --ip=0.0.0.0
+      --port=8888
+      --no-browser
+      --notebook-dir=/workspace
+    ports:
+      - "3142:8888"
+    volumes:
+      - ./py3/root_jupyter:/root/.jupyter
+      - ./workspace:/workspace
+    environment:
+      TZ: Asia/Tokyo
+      NVIDIA_VISIBLE_DEVICES: all
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility
+    gpus: all
