@@ -30,6 +30,11 @@
 
 ### 起動
 
+実行権限の付与
+```bash
+chmod +x start.sh stop.sh attach.sh
+```
+
 ```bash
 ./start.sh full
 ```
