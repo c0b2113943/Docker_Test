@@ -35,6 +35,7 @@
 chmod +x start.sh stop.sh attach.sh
 ```
 
+
 ```bash
 ./start.sh full
 ```
@@ -229,21 +230,7 @@ py3/requirements-colab-full.txt
 py3/requirements-light.txt
 ```
 
-また、Colab本体の `pip freeze` を参考として以下に保存しています。
 
-```text
-py3/requirements-colab-2026.04-gpu-freeze-reference.txt
-```
-
-このファイルは参考用です。直接 `pip install -r` するためのファイルではありません。
-
-理由は、Colab専用のローカルパッケージや、通常のDocker環境では入らない特殊なパッケージが含まれるためです。
-
-例：
-
-```text
-google-colab @ file:///...
-```
 
 ---
 
