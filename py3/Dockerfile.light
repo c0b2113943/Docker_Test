@@ -26,8 +26,8 @@ WORKDIR /workspace
 
 COPY requirements-light.txt /install/requirements-light.txt
 
-RUN python -m pip install --upgrade pip==24.1.2 setuptools==75.2.0 wheel==0.46.3 \
- && python -m pip install --upgrade-strategy only-if-needed -r /install/requirements-light.txt \
+RUN python -m pip install --break-system-packages --upgrade pip==24.1.2 setuptools==75.2.0 wheel \
+ && python -m pip install --break-system-packages --upgrade-strategy only-if-needed -r /install/requirements-light.txt \
  && python -m ipykernel install --name python3 --display-name "Python 3 (PyTorch light)"
 
 EXPOSE 8888

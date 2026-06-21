@@ -32,8 +32,8 @@ WORKDIR /workspace
 
 COPY requirements-colab-full.txt /install/requirements-colab-full.txt
 
-RUN python -m pip install --upgrade pip==24.1.2 setuptools==75.2.0 wheel==0.46.3 \
- && python -m pip install --upgrade-strategy only-if-needed -r /install/requirements-colab-full.txt \
+RUN python -m pip install --break-system-packages --upgrade pip==24.1.2 setuptools==75.2.0 wheel==0.46.3 \
+ && python -m pip install --break-system-packages --upgrade-strategy only-if-needed -r /install/requirements-colab-full.txt \
  && python -m ipykernel install --name python3 --display-name "Python 3 (Colab-like full)"
 
 EXPOSE 8888
